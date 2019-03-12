@@ -1,5 +1,6 @@
 class Api::PicturesController < ApplicationController
-
+ before_action :authenticate_admin
+ 
   def index
     @pictures = Picture.all
 
