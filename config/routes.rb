@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   get  '/users' => 'users#index'
   post '/users' => 'users#create'
-  get  '/users' => 'users#show'
-  patch '/users' => 'users#update'
-  delete '/users' => 'users#destroy'  
+  get  '/users/:id' => 'users#show'
+  patch '/users/:id' => 'users#update'
+  delete '/users/:id' => 'users#destroy'  
 
   get  '/sessions' => 'sessions#index'
   post '/sessions' => 'sessions#create'
@@ -13,20 +13,20 @@ Rails.application.routes.draw do
 
   get '/restaurants' => 'restaurants#index'
   post '/restaurants' => 'restaurants#create'
-  get '/restaurants' => 'restaurants#show'
-  patch '/restaurants' => 'restaurants#update'
-  delete '/restaurants' => 'restaurants#destroy'
+  get '/restaurants/:id' => 'restaurants#show'
+  patch '/restaurants/:id' => 'restaurants#update'
+  delete '/restaurants/:id' => 'restaurants#destroy'
 
   get 'reviews' => 'reviews#index'
   post '/reviews' => 'reviews#create'
-  get '/reviews' => 'reviews#show'
-  patch '/reviews' => 'reviews#update'
-  delete '/reviews' => 'reviews#destroy'
+  get '/reviews/:id' => 'reviews#show'
+  patch '/reviews/:id' => 'reviews#update'
+  delete '/reviews/:id' => 'reviews#destroy'
 
   get 'pictures' => 'pictures#index'
   post '/pictures' => 'pictures#create'
-  get '/pictures' => 'pictures#show'
-  patch 'pictures' => 'pictures#update'
-  delete 'pictures' => 'pictures#destroy'
+  get '/pictures/:id' => 'pictures#show'
+  patch 'pictures/:id' => 'pictures#update'
+  delete 'pictures/:id' => 'pictures#destroy'
   end
 end

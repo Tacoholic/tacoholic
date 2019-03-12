@@ -3,16 +3,16 @@ class Api::RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
 
-    search_terms = params[:search]
-    if search_terms
-      @restaurants = @restaurants.where("name iLIKE ?", "%#{search_terms}")
-    end
-
-    @restaurants = @restaurants.order(id: => :asc)
+    # search_terms = params[:search]
+    # if search_terms
+    #   @restaurants = @restaurants.where("name iLIKE ?", "%#{search_terms}")
+    # end
+    render 'index.json.jbuilder'
   end
 
   def create
-    @restaurant = restaurant.new(
+    @restaurant = Restaurant.new(
+                                id: params[:id],
                                 name: params[:name],
                                 address: params[:address],
                                 latitude: params[:latitude],
@@ -22,7 +22,7 @@ class Api::RestaurantsController < ApplicationController
                                 menu_url: params[:menu_url],
                                 hours: params[:hours]
                                 )
-    if restaurant.save
+    if @restaurant.save
       render 'show.json.jbuilder'
     else
       render json: { errors: @restaurant.errors.full_message }, status: :unprocessable_enity
@@ -45,7 +45,7 @@ class Api::RestaurantsController < ApplicationController
     @restaurant.menu_url = params[:menu_url] || @restaurant.menu_url
     @restaurant.hours = params[:hours] || @restaurant.hours
 
-    if restaurant.save
+    if @restaurant.save
        render 'show.json.jbuilder'
      else
       render json: {errors: @restaurant.errors.full_messages}, status: unprocessable_enity

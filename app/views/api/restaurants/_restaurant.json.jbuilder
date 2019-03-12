@@ -1,3 +1,4 @@
+json.id restaurant.id
 json.address restaurant.address
 json.latitude restaurant.latitude
 json.longitude restaurant.longitude

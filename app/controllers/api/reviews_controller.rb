@@ -3,21 +3,25 @@ class Api::ReviewsController < ApplicationController
   def index
     @reviews = Review.all
 
-    search_terms = params[:search]
-    if search_terms
-      @reviews = @reviews.where("name iLIKE ?", "%#{search_terms}")
-    end
+    # search_terms = params[:search]
+    # if search_terms
+    #   @reviews = @reviews.where("name iLIKE ?", "%#{search_terms}")
+    # end
+
+    render 'index.json.jbuilder'
   end  
 
   def create
-    @review = Review.new(
+    review = Review.new(
+                         user_id: params[:user_id],
+                         restaurant_id: params[:restaurant_id],
                          content: params[:content],
                          taco_points: params[:taco_points]
                          )
-    if @review.save
-      render 'show.json.jbuiler'
-    else
-      render json: { errors: @reviews.errors.full_messages }, status: :unprocessable_entity
+    if review.save
+      render json: { message: "Review created successfully" }, status: :created
+     else
+      render json: { errors: review.errors.full_messages }, status: :bad_request
     end    
   end
 
