@@ -36,5 +36,6 @@ class Api::SessionsController < ApplicationController
       @user = Recipe.find(params[:id])
       render 'show.json.jbuilder'
   end
+
 end
  
