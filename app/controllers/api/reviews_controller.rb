@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-before_action :authenticate_admin
+# before_action :authenticate_admin
   def index
     @reviews = Review.all
 
@@ -12,13 +12,13 @@ before_action :authenticate_admin
   end  
 
   def create
-    review = Review.new(
+    @review = Review.new(
                          user_id: params[:user_id],
                          restaurant_id: params[:restaurant_id],
                          content: params[:content],
                          taco_points: params[:taco_points]
                          )
-    if review.save
+    if @review.save
       render json: { message: "Review created successfully" }, status: :created
      else
       render json: { errors: review.errors.full_messages }, status: :bad_request
@@ -38,8 +38,8 @@ before_action :authenticate_admin
   end
 
   def destroy
-    review = Review.find(params[:id])
-    review.destroy
+    @review = Review.find(params[:id])
+    @review.destroy
     render json:{message: "Sucessfully removed review."}
     
   end

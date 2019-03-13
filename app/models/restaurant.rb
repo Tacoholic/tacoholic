@@ -1,7 +1,7 @@
 class Restaurant < ApplicationRecord
 
-  has_many :pictures, through: :users
-  has_many :reviews, through: :users
+  has_many :pictures
+  has_many :reviews
 
   geocoded_by :address
   after_validation :geocode
@@ -9,5 +9,8 @@ class Restaurant < ApplicationRecord
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
   
+
+
+
 
 end

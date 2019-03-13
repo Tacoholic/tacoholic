@@ -1,5 +1,5 @@
 class Api::PicturesController < ApplicationController
- before_action :authenticate_admin
+ # before_action :authenticate_admin
  
   def index
     @pictures = Picture.all
@@ -15,7 +15,9 @@ class Api::PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(
-                           image_url: params[:image_url] 
+                           image_url: params[:image_url], 
+                           restaurant_id: params[:restaurant_id],
+                           user_id: params[:user_id] 
                           )
 
     if @picture.save
@@ -29,6 +31,8 @@ class Api::PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
 
     @picture.image_url = params[:image_url] || @picture.image_url
+    @picture.restaurant_id = params[:restaurant_id] || @picture.restaurant_id
+    @picture.user_id = params[:user_id] || @picture.user_id
     
     if @picture.save
       render 'show.json.jbuilder'
@@ -43,3 +47,5 @@ class Api::PicturesController < ApplicationController
     render json: {message: "Successfully removed picture."}   
   end
 end
+
+

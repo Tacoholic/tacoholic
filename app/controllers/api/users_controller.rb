@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-before_action :authenticate_admin, only: [:index, :show] 
+# before_action :authenticate_admin, only: [:index, :show] 
   def index
     @users = User.all
 
