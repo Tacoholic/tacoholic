@@ -16,4 +16,3 @@ json.pictures do
   json.array! restaurant.pictures, partial: 'api/pictures/picture', as: :picture 
 end
 
-json

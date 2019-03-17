@@ -13,7 +13,7 @@ class Api::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(
-                         user_id: params[:user_id],
+                         user_id: current_user.id,
                          restaurant_id: params[:restaurant_id],
                          content: params[:content],
                          taco_points: params[:taco_points]
