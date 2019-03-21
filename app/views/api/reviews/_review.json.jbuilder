@@ -6,3 +6,5 @@ json.taco_points review.taco_points
 json.user do 
   json.partial! review.user, partial: 'api/users/user', as: :user
 end
+
+

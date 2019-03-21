@@ -1,18 +1,24 @@
-json.name restaurant.name
-json.id restaurant.id
-json.address restaurant.address
-json.latitude restaurant.latitude
-json.longitude restaurant.longitude
-json.phone_number restaurant.phone_number
-json.website_url restaurant.website_url
-json.menu_url restaurant.menu_url
-json.hours restaurant.hours
+json.name restaurant["name"]
+json.vicinity restaurant["vicinity"]
+json.opening_hours restaurant["opening_hours"]
+json.rating restaurant["rating"]
+json.user_ratings_total restaurant["user_ratings_total"]
+# json.id restaurant.id
+# json.address restaurant.address
+# json.latitude restaurant.latitude
+# json.longitude restaurant.longitude
+# json.phone_number restaurant.phone_number
+# json.website_url restaurant.website_url
+# json.menu_url restaurant.menu_url
+# json.hours restaurant.hours
 
-json.reviews do 
-  json.array! restaurant.reviews, partial: 'api/reviews/review', as: :review
-end
 
-json.pictures do
-  json.array! restaurant.pictures, partial: 'api/pictures/picture', as: :picture 
-end
+
+# json.reviews do 
+#   json.array! restaurant.reviews, partial: 'api/reviews/review', as: :review
+# end
+
+# json.pictures do
+#   json.array! restaurant.pictures, partial: 'api/pictures/picture', as: :picture 
+# end
 
