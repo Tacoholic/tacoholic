@@ -5,7 +5,7 @@ class Api::RestaurantsController < ApplicationController
   def index
   response = RestClient::Request.execute(
     method: :get,
-    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.8921364,-87.6370182&radius=1500&type=restaurant,formatted_phone_number&keyword=tacos&key=AIzaSyD9XLOcSAh_iiObVToMVQ8Wdud0xPjhGbo',
+    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.8921364,-87.6370182&radius=900&type=restaurant,formatted_phone_number&keyword=tacos&key=',
     headers: {api_key: 'AIzaSyD9XLOcSAh_iiObVToMVQ8Wdud0xPjhGbo'}
     )
 
