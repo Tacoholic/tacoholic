@@ -6,7 +6,7 @@ class Api::RestaurantsController < ApplicationController
   response = RestClient::Request.execute(
     method: :get,
     url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.8921364,-87.6370182&radius=900&type=restaurant,formatted_phone_number&keyword=tacos&key=',
-    headers: {api_key: 'AIzaSyD9XLOcSAh_iiObVToMVQ8Wdud0xPjhGbo'}
+    headers: {api_key: ''}
     )
 
 
