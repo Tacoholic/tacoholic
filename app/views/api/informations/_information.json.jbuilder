@@ -1,0 +1,1 @@
+_information.json.jbuilder

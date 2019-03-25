@@ -3,42 +3,8 @@ class Api::RestaurantsController < ApplicationController
 
   
   def index
-  response = RestClient::Request.execute(
-    method: :get,
-    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.8921364,-87.6370182&radius=900&type=restaurant,formatted_phone_number&keyword=tacos&key=',
-    headers: {api_key: ''}
-    )
-
-
-  JSON.parse(response)["results"].each do |result|
-    puts
-    p result["geometry"]
-    p result["icon"]
-    p result["id"]
-    p result["name"]
-    p result["opening_hours"]
-    p result["photos"]
-    p result["place_id"]
-    p result["plus_code"]
-    p result["price_level"]
-    p result["rating"]
-    p result["reference"]
-    p result["scope"]
-    p result["types"]
-    p result["user_ratings_total"]
-    p result["vicinity"]
-    p result.keys
-  end
-
-  @restaurants = JSON.parse(response)["results"]
-  # JSON.parse(@restaurants)
-    # search_terms = params[:search]
-    # if search_terms
-    #   @restaurants = @restaurants.where("name iLIKE ?", "%#{search_terms}")
-    # end
-    
+    @restaurants = Restaurant.all
     render 'index.json.jbuilder'
-
   end
 
   def create
