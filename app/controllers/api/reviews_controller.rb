@@ -2,12 +2,7 @@ class Api::ReviewsController < ApplicationController
 # before_action :authenticate_admin
   def index
     @reviews = Review.all
-
-    # search_terms = params[:search]
-    # if search_terms
-    #   @reviews = @reviews.where("name iLIKE ?", "%#{search_terms}")
-    # end
-
+    
     render 'index.json.jbuilder'
   end  
 

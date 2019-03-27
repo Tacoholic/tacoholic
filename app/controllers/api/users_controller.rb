@@ -3,12 +3,6 @@ class Api::UsersController < ApplicationController
   def index
     @users = User.all
 
-    # search_terms = params[:search]
-    # if search_terms
-    #   @users = @users.where("name iLIKE ?", "%#{search_terms}%")
-    # end
-    # @users.order(:id => :asc)
-
     render 'index.json.jbuilder'
   end
 
