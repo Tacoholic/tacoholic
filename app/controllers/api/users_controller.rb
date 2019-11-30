@@ -5,7 +5,7 @@ before_action :authenticate_admin, only: [:index, :show]
 
     render 'index.json.jbuilder'
   end
-
+  
   def create
     @user = User.new(
                     name: params[:name],
